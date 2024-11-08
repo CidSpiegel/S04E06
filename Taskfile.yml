@@ -1,0 +1,11 @@
+version : "3"
+
+tasks:
+  build:
+    cmd:
+      - go build -o bin/task
+  deploy:
+    deps : [build]
+    cmds:
+      -scp bin/task student@cidspiegel-server.eddi.cloud:/home/student
+      -ssdh tudent@cidspiegel-server.eddi.cloud "chmod u+x task"
